@@ -1,0 +1,273 @@
+---
+format: 
+  revealjs:
+    theme: [moon, styles.scss]
+editor: visual
+---
+
+
+
+## 
+
+::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
+Sometimes you just need WORDS
+:::
+
+## A story with two chapters: {auto-animate=true}
+
+
+::: {style="font-size=1.25em"}
+- When you need more words.
+- How to make words (a bit) easier!
+:::
+
+# Chapter 1:  {auto-animate=true}
+
+- When you need more words.
+
+
+## Possibly the most familiar diagram at this conference
+
+![](img/data-science-explore.png){.absolute top=200 left=200 width="600" height="400}
+
+
+##
+
+::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
+You are in the middle of that cycle 
+:::
+
+
+##
+
+![](img/data-science-explore-you.png){.absolute top=100 left=100 width="900" height="600}
+
+## Some Stuff you might do along the way:
+
+
+:::{.incremental}
+- Look at the application that generates the data
+- Read the survey instrument
+- Talk to application users
+- Read data documentation (if you are so lucky)
+- Read relevant research 
+- Talk to experts that know about how and why the data was generated
+:::
+
+
+
+##
+
+:::{style="margin-top: 50px; font-size: 4em;" }
+Time to 
+
+:::{style="color: #257675;"}
+Communicate
+:::
+
+:::
+
+
+
+##  {background-color="black" background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" background-repeat="repeat" style="margin-top: 50px; font-size: 4em;"}
+
+
+
+##
+
+:::: {style="margin-top: 25px; font-size: 3em;" }
+Time to 
+
+:::{.fragment .strike}
+
+:::{style="color: #dc731c"}
+communicate
+:::
+
+:::
+
+:::{.fragment .fade-up}
+
+:::{style="color:#0050b4;"}
+think about your audience 
+:::
+
+:::
+
+::::
+
+## 
+
+::: {.notes}
+I like to think about how hard it would be to bring my audience along on the journey I took. How extensive should my packing be.
+:::
+
+::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
+
+Bring people along on your journey
+
+:::
+
+## Two limit cases: Congress and your immediate team {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](img/congress-report.png)
+
+:::
+
+::: {.column width=10%}
+:::
+
+
+:::{.column width="40%"}
+![](img/team-dashboard.png)
+:::
+
+::::
+
+:::{.notes}
+I'm going to talk about a couple of quick examples that demonstrate the range of packing you might do for this journey.
+:::
+
+
+
+## Congress {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column}
+
+![](img/congress-report.png)
+
+:::
+
+::: {.column }
+
+::: {.incremental}
+::: {style="font-size:2.25em;"}
+- 6 charts
+- 2 tables
+- 50 pages of context
+:::
+:::
+
+:::
+
+::::
+
+
+## Two limit cases: Congress and your immediate team {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](img/congress-report.png)
+
+:::
+
+::: {.column width=10%}
+:::
+
+
+:::{.column width="40%"}
+![](img/team-dashboard.png)
+:::
+
+::::
+
+
+
+## your immediate team {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](img/team-dashboard.png)
+
+:::
+
+:::{.column width="50%"}
+
+:::{.incremental}
+::: {style="font-size:2.25em;"}
+- 3 charts
+- 6 KPIS 
+- less than a paragraph of text
+:::
+:::
+:::
+
+::::
+
+:::{.notes}
+
+- Labels come directly from data elements
+- Terse chart titles
+- KPIS presented with minimal explanation because everyone understands them.
+
+:::
+
+## Less <span style="color: #257675;">shared</span> context means more context needs to be included in your analysis
+
+
+
+
+
+
+
+
+
+:::: {.columns}
+
+::: {.column}
+
+```{r dev.args = list(bg = 'transparent')}
+
+library(tidyverse)
+
+
+
+circle <- function(size = 100, color = "black"){
+  ggplot(data = NULL,
+  aes(
+  x = 0, y = 0)) +
+  geom_point(size = size, color = color) + 
+  theme_void() +
+  theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+  
+}
+
+
+circle(size = 200, color = "light grey")
+
+```
+
+
+:::
+
+
+
+::: {.column}
+
+```{r dev.args = list(bg = "transparent")}
+circle(size = 200, color = "white")
+
+```
+
+:::
+
+
+:::: 
