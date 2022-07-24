@@ -5,40 +5,34 @@ format:
 editor: visual
 ---
 
-## 
-
-::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
-Sometimes you just need WORDS
-:::
+# Sometimes you just need WORDS
 
 ## A story with two chapters: {auto-animate="true"}
 
-::: {style="font-size=1.25em"}
--   When you need more words.
--   How to make words (a bit) easier!
-:::
+::::{.incremental style="font-size:1.75em;"}
+
+1.   When you need more words.
+2.   How to make words (a bit) easier!
+
+::::
 
 # Chapter 1: {auto-animate="true"}
 
--   When you need more words.
+[When you need more words]{style="font-size:1.5em;"}
 
 ## Possibly the most familiar diagram at this conference
 
 ![](img/data-science-explore.png){.absolute top="200" left="200" width="600" height="\"400"}
 
-## 
-
-::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
-You are in the middle of that cycle
-:::
+# [You]{style="color:#257675;"} are in the middle of that cycle
 
 ## 
 
-![](img/data-science-explore-you.png){.absolute top="100" left="100" width="900" height="\"600"}
+![](img/data-science-explore-you.png){.absolute top="100" left="75" width="900" height="\"600"}
 
 ## Some Stuff you might do along the way:
 
-::: incremental
+::: {incremental}
 -   Look at the application that generates the data
 -   Read the survey instrument
 -   Talk to application users
@@ -49,12 +43,8 @@ You are in the middle of that cycle
 
 ## 
 
-::: {style="margin-top: 50px; font-size: 4em;"}
-Time to
-
-::: {style="color: #257675;"}
-Communicate
-:::
+::: {style="margin-top: 25px; font-size: 3em;"}
+Time to [Communicate]{style="color: #257675;"}
 :::
 
 ##  {background-color="black" background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" background-repeat="repeat" style="margin-top: 50px; font-size: 4em;"}
@@ -62,19 +52,8 @@ Communicate
 ## 
 
 ::: {style="margin-top: 25px; font-size: 3em;"}
-Time to
-
-::: {.fragment .strike}
-::: {style="color: #dc731c"}
-communicate
-:::
-:::
-
-::: {.fragment .fade-up}
-::: {style="color:#0050b4;"}
-think about your audience
-:::
-:::
+Time to [communicate]{.fragment .strike style="color: #dc731c;"}
+[think about your audience]{.fragment .fade-up style="color:#0050b4;"}
 :::
 
 ## 
@@ -83,11 +62,11 @@ think about your audience
 I like to think about how hard it would be to bring my audience along on the journey I took. How extensive should my packing be.
 :::
 
-::: {style="margin-top: 50px; font-size: 4em; color: #257675;"}
-Bring people along on your journey
+::: {style="margin-top: 25px; font-size: 4em;"}
+Bring people along on your [journey]{style="color: #257675;"}
 :::
 
-## Two limit cases: Congress and your immediate team {auto-animate="true"}
+## Two limit cases: Congress | your immediate team {auto-animate="true"}
 
 ::: columns
 ::: {.column width="40%"}
@@ -115,7 +94,7 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 
 ::: column
 ::: incremental
-::: {style="font-size:2.25em;"}
+::: {style="font-size:1.75em;"}
 -   6 charts
 -   2 tables
 -   50 pages of context
@@ -124,7 +103,7 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 :::
 :::
 
-## Two limit cases: Congress and your immediate team {auto-animate="true"}
+## Two limit cases: Congress | your immediate team {auto-animate="true"}
 
 ::: columns
 ::: {.column width="40%"}
@@ -148,7 +127,7 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 
 ::: {.column width="50%"}
 ::: incremental
-::: {style="font-size:2.25em;"}
+::: {style="font-size:1.75em;"}
 -   3 charts
 -   6 KPIS
 -   less than a paragraph of text
@@ -163,46 +142,124 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 -   KPIS presented with minimal explanation because everyone understands them.
 :::
 
-## Less [shared]{style="color: #257675;"} context means more context needs to be included in your analysis
+## [Less shared]{style="color: #257675;"} context means more context needs to be included in your product
 
-::: columns
-::: column
-```{r dev.args = list(bg = 'transparent')}
+```{r }
 
 library(tidyverse)
 
-
-
-circle <- function(size = 100, color = "black"){
-  ggplot(data = NULL,
-  aes(
-  x = 0, y = 0)) +
-  geom_point(size = size, color = color) + 
-  theme_void() +
-  theme(
-    panel.background = element_rect(fill='transparent'), #transparent panel bg
-    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
-    panel.grid.major = element_blank(), #remove major gridlines
-    panel.grid.minor = element_blank(), #remove minor gridlines
-    legend.background = element_rect(fill='transparent'), #transparent legend bg
-    legend.box.background = element_rect(fill='transparent') #transparent legend panel
-  )
+this_theme <- function(gg){
+   
+  gg + 
+    theme_void() +
+    theme(
+      panel.background = element_rect(fill='transparent')
+      , plot.background = element_rect(fill='transparent', color=NA)
+      , panel.grid.major = element_blank()
+      , panel.grid.minor = element_blank()
+      , legend.background = element_rect(fill='transparent')
+      , legend.box.background = element_rect(fill='transparent')
+      )
   
 }
 
+circle <- function(gg
+                   , size = 100
+                   , color = "black"
+                   , x = 0 
+                   , y = 0){
+ 
+  gg + 
+    geom_point(aes(x = x, y = y)
+               , size = size
+               , color = color
+               , alpha = .75) 
+   }
 
-circle(size = 200, color = "light grey")
+ggplot(data = NULL)  %>% 
+  circle(color = "#eee8d5", x = -1) %>%  
+  circle(color = "light grey", x = 1, y = 0) %>%
+  this_theme() +
+  xlim(-1.75, 1.75) 
 
 ```
-:::
+## [More shared]{style="color: #257675;"} context means you can include less context in your product (but still document!)
 
-::: column
-```{r dev.args = list(bg = "transparent")}
-circle(size = 200, color = "white")
+```{r}
+
+ggplot(data = NULL)  %>% 
+  circle(color = "#eee8d5", x = -0.1) %>%  
+  circle(color = "light grey", x = 0.1, y = 0) %>%
+  this_theme() +
+  xlim(-1.75, 1.75) 
 
 ```
+## Example : Moving from team communication to external communication 
+
+:::: {.columns}
+
+::: {.column}
+![](img/internal-audience.png)
 :::
+
+::: {.column}
+
+::: incremental
+- interactive tableau dahsboard
+- high chart density (dozens!)
+- field names correspond to internal system
 :::
+
+:::
+
+:::: 
+
+## Example : Moving to an External auidence of bank employees
+
+:::: {.columns}
+
+::: {.column}
+![](img/external-audience.png)
+:::
+
+::: {.column}
+
+::: incremental
+- 3 simple static charts
+- Some of those charts are now sentences!
+- Names are defined in an introduction
+:::
+
+:::
+
+:::: 
+
+## key factors
+
+
+:::{style='font-size:2.25em;'}
+[External]{.fragment .highlight-current-blue}  
+
+[Less technical]{.fragment .highlight-current-blue}  
+
+[More Senior]{.fragment .highlight-current-blue}  
+
+[Time Crunched]{.fragment .highlight-current-blue}  
+
+:::
+
+:::{.notes}
+time crunched isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. You've got one shot!
+:::
+
+# Chapter 2:
+
+[How to make words (a bit) easier!]{style="font-size:1.5em;"}
+
+## 
+
+
+
 
 
 
