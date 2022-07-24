@@ -258,7 +258,93 @@ time crunched isn't super intuitive--but if someone is time-crunched they won't 
 
 ## 
 
+::: {style="font-size:3em;"}
+[RMARKDOWN]{style="color:green;"}
+[RMARKDOWN]{style="color:blue;"}
+[RMARKDOWN]{style="color:green;"}
+[RMARKDOWN]{style="color:blue;"}
+:::
 
+##
+
+::: {style="font-size:3em;"}
+[QUARTO]{style="color:green;"}
+[QUARTO]{style="color:blue;"}
+[QUARTO]{style="color:green;"}
+[QUARTO]{style="color:blue;"}
+[QUARTO]{style="color:green;"}
+[QUARTO]{style="color:blue;"}
+[QUARTO]{style="color:green;"}
+[QUARTO]{style="color:blue;"}
+:::
+
+
+## Tip 1 Use templating or String interpolation
+
+```{r, eval= TRUE, echo=TRUE}
+
+knitr::knit_engines$set(whisker = function(options ){
+  
+  if(purrr::is_empty(options$data)){
+    options$data <- parent.frame()
+    print(options$data)
+  }
+
+  whisker::whisker.render(
+    template = options$code
+    , data = options$data
+    , partials = options$partials
+  )
+  })
+
+```
+
+
+## Tip 1A use lists as a 'namespace'
+
+```{r, eval= TRUE, echo=TRUE}
+
+whisker_data <- list(
+  species = "virginica"
+  , mean_length =  iris %>% 
+    filter(Species == "virginica") %>% 
+    pull(Petal.Length) %>% 
+    mean()
+  , overall_mean = mean(iris$Petal.Length)
+  , field_name = "petal length"
+  , other = iris %>%  filter(Species != "virginica") %>% pull(Species) %>% 
+    unique() %>% as.character() %>% str_pad(., width = nchar(.) + 1)
+)
+
+whisker_data$greater_less <- with(
+  whisker_data
+  , ifelse(mean_length > overall_mean
+           , "longer"
+           , "shorter")
+  )
+
+```
+
+## Tip 1A use lists as a 'namespace'
+
+```{asis, echo=TRUE}
+
+A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris species ({{other}}).
+
+```
+
+:::{.fragment}
+```{whisker, data=whisker_data, evaluate=TRUE, echo=TRUE}
+
+A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris species ({{other}}). 
+
+```
+:::
+
+## Use existing design resources 
+
+
+## Partner with a writer
 
 
 
