@@ -5,16 +5,26 @@ format:
 editor: visual
 ---
 
-# Sometimes you just need WORDS
+# Sometimes you just need words
+
+:::{.notes}
+I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bureau. 
+:::
 
 ## A story with two chapters: {auto-animate="true"}
 
-::::{.incremental style="font-size:1.75em;"}
+:::{.incremental style="font-size:1.75em;"}
 
-1.   When you need more words.
-2.   How to make words (a bit) easier!
+1. When you need more words.
+2. How to make words (a bit) easier!
 
-::::
+:::
+
+:::{.notes}
+This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? 
+
+The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate some words from text. 
+:::
 
 # Chapter 1: {auto-animate="true"}
 
@@ -24,11 +34,19 @@ editor: visual
 
 ![](img/data-science-explore.png){.absolute top="200" left="200" width="600" height="\"400"}
 
+::: {.notes}
+I think everyone has probably seen this diagram from R for data science. It really does explain a lot of what happens when making data products. But I do think it undersells one thing.
+:::
+
 # [You]{style="color:#257675;"} are in the middle of that cycle
 
 ## 
 
 ![](img/data-science-explore-you.png){.absolute top="100" left="75" width="900" height="\"600"}
+
+:::{.notes}
+there you are. looking cool. So why does this matter? Well, you are building up context for the data and your analysis during that cycle. 
+:::
 
 ## Some Stuff you might do along the way:
 
@@ -41,13 +59,25 @@ editor: visual
 -   Talk to experts that know about how and why the data was generated
 :::
 
+::: {.notes}
+this stuff is all data science too. it's important! if you don't really understand the context of your data it's easy to make mistakes. So this stuff is important and shouldn't be undersold.
+:::
+
 ## 
 
 ::: {style="margin-top: 25px; font-size: 3em;"}
 Time to [Communicate]{style="color: #257675;"}
 :::
 
+::: {.notes}
+At some point, or maybe more likely at several points you will do some communication about your data or your analysis! Yay, this part is fun.
+:::
+
 ##  {background-color="black" background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" background-repeat="repeat" style="margin-top: 50px; font-size: 4em;"}
+
+::: {.notes}
+No knock on dashboards! I've made a few. And no knock even on this particular dashboard, it's just what google gave me when I asked for "busy dashboards."  It might be a great dashboard for the someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal. 
+:::
 
 ## 
 
@@ -58,13 +88,14 @@ Time to [communicate]{.fragment .strike style="color: #dc731c;"}
 
 ## 
 
+::: {style="margin-top: 25px; font-size: 4em;"}
+Bring people along on your [journey]{style="color: #257675;"}
+:::
+
 ::: notes
 I like to think about how hard it would be to bring my audience along on the journey I took. How extensive should my packing be.
 :::
 
-::: {style="margin-top: 25px; font-size: 4em;"}
-Bring people along on your [journey]{style="color: #257675;"}
-:::
 
 ## Two limit cases: Congress | your immediate team {auto-animate="true"}
 
