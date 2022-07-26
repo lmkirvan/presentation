@@ -8,7 +8,7 @@ editor: visual
 # Sometimes you just need words
 
 :::{.notes}
-I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bureau. 
+I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bureau. today I'm talking about how important words are for data analysts.
 :::
 
 ## A story with two chapters: {auto-animate="true"}
@@ -50,7 +50,7 @@ there you are. looking cool. hands on your hips. So why does this matter? Well, 
 
 ## Some Stuff you might do along the way:
 
-::: {incremental}
+:::incremental
 -   Look at the application that generates the data
 -   Read the survey instrument
 -   Talk to application users
@@ -294,7 +294,7 @@ POST: This is a pretty classic team KPIs kind of reporting dashboard. The origin
 
 [Decision makers]{.fragment .highlight-current-blue}  
 
-[Time Crunched]{.fragment .highlight-current-blue}  
+[Time crunched]{.fragment .highlight-current-blue}  
 
 :::
 
@@ -332,9 +332,11 @@ time crunched isn't super intuitive--but if someone is time-crunched they won't 
 :::
 
 
-## Tip 1 Use templating or String interpolation
+## Tip 1 Use a template language or string interpolation
 
-```{r, eval= TRUE, echo=TRUE}
+```{r }
+#| code-line-numbers: "|12|13|"
+#| echo: fenced
 
 knitr::knit_engines$set(whisker = function(options ){
   
@@ -364,8 +366,11 @@ whisker_data <- list(
     mean()
   , overall_mean = mean(iris$Petal.Length)
   , field_name = "petal length"
-  , other = iris %>%  filter(Species != "virginica") %>% pull(Species) %>% 
-    unique() %>% as.character() %>% str_pad(., width = nchar(.) + 1)
+  , other = iris %>%  
+    filter(Species != "virginica") %>% 
+    pull(Species) %>% 
+    unique() %>% 
+    as.character() %>% str_pad(., width = nchar(.) + 1)
 )
 
 whisker_data$greater_less <- with(
@@ -376,6 +381,10 @@ whisker_data$greater_less <- with(
   )
 
 ```
+
+::: notes
+PRE: Why do you want to do this? Because when you're developing a report with lots of generated texts your environment will get very full of stuff. I have some reports that would have dozens of variables needed to generate text. This can put a lot of mental load on you as a developer. Plus naming things is hard...you might calculate ten different means, it's hard to keep differentiating them.  
+:::
 
 ## Tip 1A use lists as a 'namespace'
 
@@ -393,12 +402,83 @@ A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris s
 ```
 :::
 
-## Use existing design resources 
+::: {.notes}
+Mustache is intentionally very simple, but it does have a couple of other nice features. I use it to create conditional text that depends on some data element passing a threshold or being present in the data. This same pattern works with GLUE and glue. 
+:::
+
+# Tip 2 : Use existing design resources
+
+::: notes
+design reallly matters for documents with lots of words. style consistency and signposting are one of the big differences between a good document and an unreadable one. There's a good chance that someone in your org has put a lot of thought into how to communicate.  
+:::
+
+## Tip 2A Use existing document templates so you never have to copy paste again
+
+it's almost as easy as this: 
+
+::::columns
+:::{.column width="45%"}
+
+```yaml
+format:
+  docx:
+    reference-doc: 
+      custom-reference-doc.docx
+```
+:::
+
+:::{.column width="10%"}
+:::
+
+:::{.column width="45%"}
+
+```yaml
+format:
+  docx:
+    reference-doc: 
+      cool-org-document.docx
+```
+:::
+::::
+
+:::notes
+You can actually copy styles between documents! The pand doc starter template is a good place to start, but you can reference styles. The Quarto docs have a good example of how to futz with styles in word. For my org, I've actually wrapped a few of these design templates into packages! Never copy paste again! This same idea can work with existing css that your org uses. It may require a little more finagaling but style consistency can really elevate your documents. 
+:::
+
+## Tip 2A Use existing document templates 
+
+Then use pandoc to reference your fancy custom styles like so: 
+
+```markdown
+:::{custom-style="pull-quote"}
+Put your qutation here!
+:::
+```
+
+![](img/pull-quote.png)
 
 
+## Tip 2B Package up your design system
+
+A minimal package that will save you tons of time:
+
+:::incremental
+1. put your organization colors in an easy to access list
+2. a ggplot theme that gets you most of the way to publication ready
+:::
+
+:::notes 
+this is cheating, because it's not strictly about using words, but it's such a time saver that I can't not include it.
+:::
 
 ## Partner with a writer
 
+They can help you with lots of stuff:
 
+:::incremental
+- grammar, the grammar for language
+- an outside opinion (does it make sense?)
+- thinking even more about what your audience cares about. 
+:::
 
 

@@ -396,7 +396,7 @@
 <section id="sometimes-you-just-need-words" class="title-slide slide level1 center">
 <h1>Sometimes you just need words</h1>
 <aside class="notes">
-<p>I’m Lewis Kirvan, I’m a research manager at the Consumer Finance Protection Bureau.</p>
+<p>I’m Lewis Kirvan, I’m a research manager at the Consumer Finance Protection Bureau. today I’m talking about how important words are for data analysts.</p>
 </aside>
 </section>
 <section id="a-story-with-two-chapters" class="slide level2" data-auto-animate="true">
@@ -438,14 +438,14 @@
 </section>
 <section id="some-stuff-you-might-do-along-the-way" class="slide level2">
 <h2>Some Stuff you might do along the way:</h2>
-<div class="{incremental}">
+<div>
 <ul>
-<li>Look at the application that generates the data</li>
-<li>Read the survey instrument</li>
-<li>Talk to application users</li>
-<li>Read data documentation (if you are so lucky)</li>
-<li>Read relevant research</li>
-<li>Talk to experts that know about how and why the data was generated</li>
+<li class="fragment">Look at the application that generates the data</li>
+<li class="fragment">Read the survey instrument</li>
+<li class="fragment">Talk to application users</li>
+<li class="fragment">Read data documentation (if you are so lucky)</li>
+<li class="fragment">Read relevant research</li>
+<li class="fragment">Talk to experts that know about how and why the data was generated</li>
 </ul>
 </div>
 <aside class="notes">
@@ -608,7 +608,7 @@
 <p><span class="fragment highlight-current-blue">External</span></p>
 <p><span class="fragment highlight-current-blue">Less technical</span></p>
 <p><span class="fragment highlight-current-blue">Decision makers</span></p>
-<p><span class="fragment highlight-current-blue">Time Crunched</span></p>
+<p><span class="fragment highlight-current-blue">Time crunched</span></p>
 </div>
 <aside class="notes">
 <p>external people don’t share much context at all watch out for specialized charts–&gt; don’t just present a ROC curve for decision makers appropriate context builds trust<br>
@@ -632,22 +632,26 @@ time crunched isn’t super intuitive–but if someone is time-crunched they won
 <p><span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span></p>
 </div>
 </section>
-<section id="tip-1-use-templating-or-string-interpolation" class="slide level2">
-<h2>Tip 1 Use templating or String interpolation</h2>
+<section id="tip-1-use-a-template-language-or-string-interpolation" class="slide level2">
+<h2>Tip 1 Use a template language or string interpolation</h2>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>knitr<span class="sc">::</span>knit_engines<span class="sc">$</span><span class="fu">set</span>(<span class="at">whisker =</span> <span class="cf">function</span>(options ){</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="cf">if</span>(purrr<span class="sc">::</span><span class="fu">is_empty</span>(options<span class="sc">$</span>data)){</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    options<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">globalenv</span>()</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="fu">print</span>(options<span class="sc">$</span>data)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>  }</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  whisker<span class="sc">::</span><span class="fu">whisker.render</span>(</span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="at">template =</span> options<span class="sc">$</span>code</span>
-<span id="cb1-10"><a href="#cb1-10"></a>    , <span class="at">data =</span> options<span class="sc">$</span>data</span>
-<span id="cb1-11"><a href="#cb1-11"></a>    , <span class="at">partials =</span> options<span class="sc">$</span>partials</span>
-<span id="cb1-12"><a href="#cb1-12"></a>  )</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="|12|13|"><pre class="sourceCode numberSource markdown cell-code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#| code-line-numbers: "|12|13|"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>knitr<span class="sc">::</span>knit_engines<span class="sc">$</span><span class="fu">set</span>(<span class="at">whisker =</span> <span class="cf">function</span>(options ){</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="cf">if</span>(purrr<span class="sc">::</span><span class="fu">is_empty</span>(options<span class="sc">$</span>data)){</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    options<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">globalenv</span>()</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="fu">print</span>(options<span class="sc">$</span>data)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  }</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  whisker<span class="sc">::</span><span class="fu">whisker.render</span>(</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="at">template =</span> options<span class="sc">$</span>code</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    , <span class="at">data =</span> options<span class="sc">$</span>data</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    , <span class="at">partials =</span> options<span class="sc">$</span>partials</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  )</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  })</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tip-1a-use-lists-as-a-namespace" class="slide level2">
@@ -661,17 +665,23 @@ time crunched isn’t super intuitive–but if someone is time-crunched they won
 <span id="cb2-6"><a href="#cb2-6"></a>    <span class="fu">mean</span>()</span>
 <span id="cb2-7"><a href="#cb2-7"></a>  , <span class="at">overall_mean =</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length)</span>
 <span id="cb2-8"><a href="#cb2-8"></a>  , <span class="at">field_name =</span> <span class="st">"petal length"</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>  , <span class="at">other =</span> iris <span class="sc">%&gt;%</span>  <span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">"virginica"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">str_pad</span>(., <span class="at">width =</span> <span class="fu">nchar</span>(.) <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>)</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a>whisker_data<span class="sc">$</span>greater_less <span class="ot">&lt;-</span> <span class="fu">with</span>(</span>
-<span id="cb2-14"><a href="#cb2-14"></a>  whisker_data</span>
-<span id="cb2-15"><a href="#cb2-15"></a>  , <span class="fu">ifelse</span>(mean_length <span class="sc">&gt;</span> overall_mean</span>
-<span id="cb2-16"><a href="#cb2-16"></a>           , <span class="st">"longer"</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a>           , <span class="st">"shorter"</span>)</span>
-<span id="cb2-18"><a href="#cb2-18"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a href="#cb2-9"></a>  , <span class="at">other =</span> iris <span class="sc">%&gt;%</span>  </span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">"virginica"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="fu">pull</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">str_pad</span>(., <span class="at">width =</span> <span class="fu">nchar</span>(.) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-14"><a href="#cb2-14"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>whisker_data<span class="sc">$</span>greater_less <span class="ot">&lt;-</span> <span class="fu">with</span>(</span>
+<span id="cb2-17"><a href="#cb2-17"></a>  whisker_data</span>
+<span id="cb2-18"><a href="#cb2-18"></a>  , <span class="fu">ifelse</span>(mean_length <span class="sc">&gt;</span> overall_mean</span>
+<span id="cb2-19"><a href="#cb2-19"></a>           , <span class="st">"longer"</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>           , <span class="st">"shorter"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p>PRE: Why do you want to do this? Because when you’re developing a report with lots of generated texts your environment will get very full of stuff. I have some reports that would have dozens of variables needed to generate text. This can put a lot of mental load on you as a developer. Plus naming things is hard…you might calculate ten different means, it’s hard to keep differentiating them.</p>
+</aside>
 </section>
 <section id="tip-1a-use-lists-as-a-namespace-1" class="slide level2">
 <h2>Tip 1A use lists as a ‘namespace’</h2>
@@ -683,12 +693,70 @@ time crunched isn’t super intuitive–but if someone is time-crunched they won
 <p>A typical virginica iris has longer petal length than other iris species ( setosa, versicolor).</p>
 </div>
 </div>
+<aside class="notes">
+<p>Mustache is intentionally very simple, but it does have a couple of other nice features. I use it to create conditional text that depends on some data element passing a threshold or being present in the data. This same pattern works with GLUE and glue.</p>
+</aside>
+</section></section>
+<section>
+<section id="tip-2-use-existing-design-resources" class="title-slide slide level1 center">
+<h1>Tip 2 : Use existing design resources</h1>
+<aside class="notes">
+<p>design reallly matters for documents with lots of words. style consistency and signposting are one of the big differences between a good document and an unreadable one. There’s a good chance that someone in your org has put a lot of thought into how to communicate.</p>
+</aside>
 </section>
-<section id="use-existing-design-resources" class="slide level2">
-<h2>Use existing design resources</h2>
+<section id="tip-2a-use-existing-document-templates-so-you-never-have-to-copy-paste-again" class="slide level2">
+<h2>Tip 2A Use existing document templates so you never have to copy paste again</h2>
+<p>it’s almost as easy as this:</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="at">      custom-reference-doc.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="at">      cool-org-document.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>You can actually copy styles between documents! The pand doc starter template is a good place to start, but you can reference styles. The Quarto docs have a good example of how to futz with styles in word. For my org, I’ve actually wrapped a few of these design templates into packages! Never copy paste again! This same idea can work with existing css that your org uses. It may require a little more finagaling but style consistency can really elevate your documents.</p>
+</aside>
+</section>
+<section id="tip-2a-use-existing-document-templates" class="slide level2">
+<h2>Tip 2A Use existing document templates</h2>
+<p>Then use pandoc to reference your fancy custom styles like so:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>:::{custom-style="pull-quote"}</span>
+<span id="cb5-2"><a href="#cb5-2"></a>Put your qutation here!</span>
+<span id="cb5-3"><a href="#cb5-3"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="img/pull-quote.png" class="r-stretch"></section>
+<section id="tip-2b-package-up-your-design-system" class="slide level2">
+<h2>Tip 2B Package up your design system</h2>
+<p>A minimal package that will save you tons of time:</p>
+<div>
+<ol type="1">
+<li class="fragment">put your organization colors in an easy to access list</li>
+<li class="fragment">a ggplot theme that gets you most of the way to publication ready</li>
+</ol>
+</div>
+<aside class="notes">
+<p>this is cheating, because it’s not strictly about using words, but it’s such a time saver that I can’t not include it.</p>
+</aside>
 </section>
 <section id="partner-with-a-writer" class="slide level2">
 <h2>Partner with a writer</h2>
+<p>They can help you with lots of stuff:</p>
+<div>
+<ul>
+<li class="fragment">grammar, the grammar for language</li>
+<li class="fragment">an outside opinion (does it make sense?)</li>
+<li class="fragment">thinking even more about what your audience cares about.</li>
+</ul>
+</div>
 <div class="footer footer-default">
 
 </div>
