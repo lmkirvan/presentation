@@ -23,7 +23,7 @@ I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bure
 :::{.notes}
 This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? 
 
-The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate some words from text. 
+The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate text based on your data. 
 :::
 
 # Chapter 1: {auto-animate="true"}
@@ -35,7 +35,7 @@ The second part of this talk presents a few tactics for making it easy to work w
 ![](img/data-science-explore.png){.absolute top="200" left="200" width="600" height="\"400"}
 
 ::: {.notes}
-I think everyone has probably seen this diagram from R for data science. It really does explain a lot of what happens when making data products. But I do think it undersells one thing.
+I think everyone has probably seen this diagram from R for data science. It really does explain a lot of what happens when making data products. But I think it leaves off one important thing.
 :::
 
 # [You]{style="color:#257675;"} are in the middle of that cycle
@@ -45,7 +45,7 @@ I think everyone has probably seen this diagram from R for data science. It real
 ![](img/data-science-explore-you.png){.absolute top="100" left="75" width="900" height="\"600"}
 
 :::{.notes}
-there you are. looking cool. So why does this matter? Well, you are building up context for the data and your analysis during that cycle. 
+there you are. looking cool. hands on your hips. So why does this matter? Well, you are building up context for the data and for your analysis during that cycle. 
 :::
 
 ## Some Stuff you might do along the way:
@@ -70,13 +70,13 @@ Time to [Communicate]{style="color: #257675;"}
 :::
 
 ::: {.notes}
-At some point, or maybe more likely at several points you will do some communication about your data or your analysis! Yay, this part is fun.
+At some point, or more likely at several points you will do some communication about your data or your analysis! Yay, this part is fun.
 :::
 
 ##  {background-color="black" background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" background-repeat="repeat" style="margin-top: 50px; font-size: 4em;"}
 
 ::: {.notes}
-No knock on dashboards! I've made a few. And no knock even on this particular dashboard, it's just what google gave me when I asked for "busy dashboards."  It might be a great dashboard for the someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal. 
+No knock on dashboards! I've made more than a few. And no knock even on this particular dashboard, it's just what google gave me when I asked for "busy dashboards."  It might be a great dashboard for the someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal. 
 :::
 
 ## 
@@ -92,8 +92,9 @@ Time to [communicate]{.fragment .strike style="color: #dc731c;"}
 Bring people along on your [journey]{style="color: #257675;"}
 :::
 
-::: notes
-I like to think about how hard it would be to bring my audience along on the journey I took. How extensive should my packing be.
+::: {.notes}
+Remember all that context you built up? A good first communication question to ask is "how much of that context is shared by my audience". How much do you have to pack, to
+get your audience happily to their destination. 
 :::
 
 
@@ -113,12 +114,12 @@ I like to think about how hard it would be to bring my audience along on the jou
 :::
 
 ::: notes
-I'm going to talk about a couple of quick examples that demonstrate the range of packing you might do for this journey.
+I'm going to talk about a couple of quick examples that demonstrate the range of packing you might do for your journey.
 :::
 
 ## Congress {auto-animate="true"}
 
-::: columns
+:::: columns
 ::: column
 ![](img/congress-report.png)
 :::
@@ -132,31 +133,38 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 :::
 :::
 :::
+::::
+
+::: notes
+congress needs a lot of stuff
+explaining and defining key terms
+describing the data collection in detail
+describe the legal framework and rules that govern the collection
 :::
 
 ## Two limit cases: Congress | your immediate team {auto-animate="true"}
 
-::: columns
-::: {.column width="40%"}
+:::: columns
+::: {.column width="45%"}
 ![](img/congress-report.png)
 :::
 
 ::: {.column width="10%"}
 :::
 
-::: {.column width="40%"}
+::: {.column width="45%"}
 ![](img/team-dashboard.png)
 :::
-:::
+::::
 
 ## your immediate team {auto-animate="true"}
 
 ::: columns
-::: {.column width="50%"}
+::: {.column}
 ![](img/team-dashboard.png)
 :::
 
-::: {.column width="50%"}
+::: {.column}
 ::: incremental
 ::: {style="font-size:1.75em;"}
 -   3 charts
@@ -170,10 +178,11 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 ::: notes
 -   Labels come directly from data elements
 -   Terse chart titles
--   KPIS presented with minimal explanation because everyone understands them.
+-   KPIs presented with minimal explanation because everyone understands them.
 :::
 
-## [Less shared]{style="color: #257675;"} context means more context needs to be included in your product
+
+## [Less shared context]{style="color: #257675;"} means more context (AKA WORDS) needs to be included in your product.
 
 ```{r }
 
@@ -214,7 +223,8 @@ ggplot(data = NULL)  %>%
   xlim(-1.75, 1.75) 
 
 ```
-## [More shared]{style="color: #257675;"} context means you can include less context in your product (but still document!)
+
+## [More shared context]{style="color: #257675;"} means you can include less context in your product (but you still document it!)
 
 ```{r}
 
@@ -225,6 +235,8 @@ ggplot(data = NULL)  %>%
   xlim(-1.75, 1.75) 
 
 ```
+
+
 ## Example : Moving from team communication to external communication 
 
 :::: {.columns}
@@ -245,6 +257,11 @@ ggplot(data = NULL)  %>%
 
 :::: 
 
+::: notes
+PRE: I like this example because it's the same data but presented to two different audiences 
+POST: This is a pretty classic team KPIs kind of reporting dashboard. The original draft of the external version of this report repurposed a lot of this dashboard. 
+:::
+
 ## Example : Moving to an External auidence of bank employees
 
 :::: {.columns}
@@ -254,32 +271,37 @@ ggplot(data = NULL)  %>%
 :::
 
 ::: {.column}
-
 ::: incremental
 - 3 simple static charts
-- Some of those charts are now sentences!
+- Some of the charts from the internal dashboard are now sentences!
 - Names are defined in an introduction
+- different explanatory paragraphs are included depending on data 
 :::
-
 :::
 
 :::: 
 
-## key factors
+::: notes
 
+:::
+
+## key factors
 
 :::{style='font-size:2.25em;'}
 [External]{.fragment .highlight-current-blue}  
 
 [Less technical]{.fragment .highlight-current-blue}  
 
-[More Senior]{.fragment .highlight-current-blue}  
+[Decision makers]{.fragment .highlight-current-blue}  
 
 [Time Crunched]{.fragment .highlight-current-blue}  
 
 :::
 
 :::{.notes}
+external people don't share much context at all
+watch out for specialized charts--> don't just present a ROC curve
+for decision makers appropriate context builds trust  
 time crunched isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. You've got one shot!
 :::
 
@@ -317,7 +339,7 @@ time crunched isn't super intuitive--but if someone is time-crunched they won't 
 knitr::knit_engines$set(whisker = function(options ){
   
   if(purrr::is_empty(options$data)){
-    options$data <- parent.frame()
+    options$data <- globalenv()
     print(options$data)
   }
 
@@ -329,7 +351,6 @@ knitr::knit_engines$set(whisker = function(options ){
   })
 
 ```
-
 
 ## Tip 1A use lists as a 'namespace'
 
@@ -365,7 +386,7 @@ A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris s
 ```
 
 :::{.fragment}
-```{whisker, data=whisker_data, evaluate=TRUE, echo=TRUE}
+```{whisker, data=whisker_data}
 
 A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris species ({{other}}). 
 
@@ -373,6 +394,7 @@ A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris s
 :::
 
 ## Use existing design resources 
+
 
 
 ## Partner with a writer
