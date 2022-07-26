@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.80">
+  <title>presentation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+
+  <script src="presentation_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="presentation_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="presentation_files/libs/quarto-html/popper.min.js"></script>
+  <script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+  <link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.7em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > :last-child,
+  .callout.callout-captioned .callout-body > div > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal #title-slide.center,
+    .reveal .title-slide.center,
+    .reveal .controls .navigate-left .controls-arrow,
+    .reveal .controls .navigate-right .controls-arrow {
+      margin-top: -15px;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="sometimes-you-just-need-words" class="title-slide slide level1 center">
+<h1>Sometimes you just need words</h1>
+<aside class="notes">
+<p>I’m Lewis Kirvan, I’m a research manager at the Consumer Finance Protection Bureau. today I’m talking about how important words are for data analysts.</p>
+</aside>
+</section>
+<section id="a-story-with-two-chapters" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">A story with two chapters:</h2>
+<div style="font-size:1.75em;">
+<ol type="1">
+<li class="fragment">When you need more words.</li>
+<li class="fragment">How to make words (a bit) easier!</li>
+</ol>
+</div>
+<aside class="notes">
+<p>This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs?</p>
+<p>The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate text based on your data.</p>
+</aside>
+</section></section>
+<section>
+<section id="chapter-1" class="title-slide slide level1 center" data-auto-animate="true">
+<h1 data-id="quarto-animate-title">Chapter 1:</h1>
+<p><span style="font-size:1.5em;">When you need more words</span></p>
+</section>
+<section id="possibly-the-most-familiar-diagram-at-this-conference" class="slide level2">
+<h2>Possibly the most familiar diagram at this conference</h2>
+<p><img data-src="img/data-science-explore.png" class="absolute" style="top: 200px; left: 200px; width: 600px; height: &quot;400; "></p>
+<aside class="notes">
+<p>I think everyone has probably seen this diagram from R for data science. It really does explain a lot of what happens when making data products. But I think it leaves off one important thing.</p>
+</aside>
+</section></section>
+<section>
+<section id="you-are-in-the-middle-of-that-cycle" class="title-slide slide level1 center">
+<h1><span style="color:#257675;">You</span> are in the middle of that cycle</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p><img data-src="img/data-science-explore-you.png" class="absolute" style="top: 100px; left: 75px; width: 900px; height: &quot;600; "></p>
+<aside class="notes">
+<p>there you are. looking cool. hands on your hips. So why does this matter? Well, you are building up context for the data and for your analysis during that cycle.</p>
+</aside>
+</section>
+<section id="some-stuff-you-might-do-along-the-way" class="slide level2">
+<h2>Some Stuff you might do along the way:</h2>
+<div>
+<ul>
+<li class="fragment">Look at the application that generates the data</li>
+<li class="fragment">Read the survey instrument</li>
+<li class="fragment">Talk to application users</li>
+<li class="fragment">Read data documentation (if you are so lucky)</li>
+<li class="fragment">Read relevant research</li>
+<li class="fragment">Talk to experts that know about how and why the data was generated</li>
+</ul>
+</div>
+<aside class="notes">
+<p>this stuff is all data science too. it’s important! if you don’t really understand the context of your data it’s easy to make mistakes. So this stuff is important and shouldn’t be undersold.</p>
+</aside>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div style="margin-top: 25px; font-size: 3em;">
+<p>Time to <span style="color: #257675;">communicate</span></p>
+</div>
+<aside class="notes">
+<p>At some point, or more likely at several points you will do some communication about your data or your analysis! Yay, this part is fun.</p>
+</aside>
+</section>
+<section id="section-2" class="slide level2" data-background-color="black" data-background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" data-background-repeat="repeat" style="margin-top: 50px; font-size: 4em;">
+<h2></h2>
+<aside class="notes">
+<p>No knock on dashboards! I’ve made more than a few. And no knock even on this particular dashboard, it’s just what google gave me when I asked for “busy dashboards.” It might be a great dashboard for someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal.</p>
+</aside>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div style="margin-top: 25px; font-size: 3em;">
+<p>Time to <span class="fragment strike" style="color: #dc731c;">communicate</span> <span class="fragment fade-up" style="color:#0050b4;">think about your audience</span></p>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div style="margin-top: 25px; font-size: 4em;">
+<p>Bring people along on your <span style="color: #257675;">journey</span></p>
+</div>
+<aside class="notes">
+<p>Remember all that context you built up? A good first question to ask yourself is “how much of that context is shared by my audience”. How much do you have to pack, to get your audience happily to their destination.</p>
+</aside>
+</section>
+<section id="two-limit-cases-congress-your-immediate-team" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Two limit cases: Congress | your immediate team</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="img/congress-report.png"></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/team-dashboard.png"></p>
+</div>
+</div>
+<aside class="notes">
+<p>I’m going to talk about a couple of quick examples that demonstrate the range of packing you might do for your journey.</p>
+</aside>
+</section>
+<section id="congress" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Congress</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="img/congress-report.png"></p>
+</div><div class="column">
+<div>
+<div style="font-size:1.75em;">
+<ul>
+<li class="fragment">6 charts</li>
+<li class="fragment">2 tables</li>
+<li class="fragment">50 pages of context</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>congress needs a lot of stuff explaining and defining key terms describing the data collection in detail describe the legal framework and rules that govern the collection</p>
+</aside>
+</section>
+<section id="two-limit-cases-congress-your-immediate-team-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Two limit cases: Congress | your immediate team</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="img/congress-report.png"></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><img data-src="img/team-dashboard.png"></p>
+</div>
+</div>
+</section>
+<section id="your-immediate-team" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">your immediate team</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="img/team-dashboard.png"></p>
+</div><div class="column">
+<div>
+<div style="font-size:1.75em;">
+<ul>
+<li class="fragment">3 charts</li>
+<li class="fragment">6 KPIs</li>
+<li class="fragment">less than a paragraph of text</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Labels come directly from data elements</li>
+<li>Terse chart titles</li>
+<li>KPIs presented with minimal explanation because everyone understands them.</li>
+</ul>
+</aside>
+</section>
+<section id="less-shared-context-means-more-context-aka-words-needs-to-be-included-in-your-product." class="slide level2">
+<h2><span style="color: #257675;">Less shared context</span> means more context (AKA WORDS) needs to be included in your product.</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="more-shared-context-means-you-can-include-less-context-in-your-product-but-you-still-document-it" class="slide level2">
+<h2><span style="color: #257675;">More shared context</span> means you can include less context in your product (but you still document it!)</h2>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="example-moving-from-team-communication-to-external-communication" class="slide level2">
+<h2>Example : Moving from team communication to external communication</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="img/internal-audience.png"></p>
+</div><div class="column">
+<div>
+<ul>
+<li class="fragment">interactive Tableau dashboard</li>
+<li class="fragment">high chart density (dozens!)</li>
+<li class="fragment">field names correspond to internal system</li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>PRE: I like this example because it’s the same data but presented to two different audiences POST: This is a pretty classic team KPIs kind of reporting dashboard. When the team went to draft the external version of this report they repurposed a lot of this dashboard, because it’s what they are used to.</p>
+</aside>
+</section>
+<section id="example-moving-to-an-external-audience-of-bank-employees" class="slide level2">
+<h2>Example : Moving to an External audience of bank employees</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="img/external-audience.png"></p>
+</div><div class="column">
+<div>
+<ul>
+<li class="fragment">3 simple static charts</li>
+<li class="fragment">Some of the charts from the internal dashboard are now sentences!</li>
+<li class="fragment">Names are defined in an introduction</li>
+<li class="fragment">Different explanatory paragraphs are included depending on data</li>
+</ul>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>It’s actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point. And we conditionally only the text that is relevant to save on time.</p>
+</aside>
+</section>
+<section id="key-factors" class="slide level2">
+<h2>key factors</h2>
+<div style="font-size:2.25em;">
+<p><span class="fragment highlight-current-blue">External</span></p>
+<p><span class="fragment highlight-current-blue">Less technical</span></p>
+<p><span class="fragment highlight-current-blue">Decision makers</span></p>
+<p><span class="fragment highlight-current-blue">Time crunched</span></p>
+</div>
+<aside class="notes">
+<ul>
+<li>external people don’t share much context at all</li>
+<li>external doesn’t have just one meaning. there’s external to your team, external to your office and external to your organization</li>
+<li>watch out for specialized charts–&gt; don’t just present a ROC curve</li>
+<li>for decision makers appropriate context builds trust<br>
+</li>
+<li>time crunched isn’t super intuitive–but if someone is time-crunched they won’t look up the context themselves. You’ve got one shot!</li>
+</ul>
+<p>that’s chapter one, hopefully this is a helpful way to think about communicating and will help you identify when you might be in the universe of needing more words in your analysis.</p>
+</aside>
+</section></section>
+<section>
+<section id="chapter-2" class="title-slide slide level1 center">
+<h1>Chapter 2:</h1>
+<p><span style="font-size:1.5em;">How to make words (a bit) easier!</span></p>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div style="font-size:3em;">
+<p><span style="color:green;">RMARKDOWN</span> <span style="color:blue;">RMARKDOWN</span> <span style="color:green;">RMARKDOWN</span> <span style="color:blue;">RMARKDOWN</span></p>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div style="font-size:3em;">
+<p><span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span> <span style="color:green;">QUARTO</span> <span style="color:blue;">QUARTO</span></p>
+</div>
+</section>
+<section id="tips" class="slide level2">
+<h2>Tips</h2>
+<div style="font-size:2.25em;">
+<p><span class="fragment highlight-current-blue">Use templates</span></p>
+<p><span class="fragment highlight-current-blue">Use design resources</span></p>
+<p><span class="fragment highlight-current-blue">Partner up</span></p>
+</div>
+</section>
+<section id="tip-1-use-a-template-language-or-string-interpolation" class="slide level2">
+<h2>Tip 1 Use a template language or string interpolation</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1" data-code-line-numbers="|11|12|"><pre class="sourceCode numberSource markdown cell-code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#| code-line-numbers: "|11|12|"</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>knitr<span class="sc">::</span>knit_engines<span class="sc">$</span><span class="fu">set</span>(<span class="at">whisker =</span> <span class="cf">function</span>(options ){</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="cf">if</span>(purrr<span class="sc">::</span><span class="fu">is_empty</span>(options<span class="sc">$</span>data)){</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    options<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">globalenv</span>()</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  }</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  whisker<span class="sc">::</span><span class="fu">whisker.render</span>(</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="at">template =</span> options<span class="sc">$</span>code</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    , <span class="at">data =</span> options<span class="sc">$</span>data</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    , <span class="at">partials =</span> options<span class="sc">$</span>partials</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  )</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  })</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tip-1-use-a-template-language-or-string-interpolation-1" class="slide level2">
+<h2>Tip 1 Use a template language or string interpolation</h2>
+<div class="cell">
+<div class="sourceCode" id="cb2" data-code-line-numbers="|11|12|"><pre class="sourceCode numberSource markdown cell-code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| code-line-numbers: "|11|12|"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>knitr<span class="sc">::</span>knit_engines<span class="sc">$</span><span class="fu">set</span>(<span class="at">glue =</span> <span class="cf">function</span>(options ){</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  </span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="cf">if</span>(purrr<span class="sc">::</span><span class="fu">is_empty</span>(options<span class="sc">$</span>data)){</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    options<span class="sc">$</span>data <span class="ot">&lt;-</span> <span class="fu">globalenv</span>()</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  }</span>
+<span id="cb2-9"><a href="#cb2-9"></a>  </span>
+<span id="cb2-10"><a href="#cb2-10"></a>  glue<span class="sc">::</span><span class="fu">glue</span>(</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    options<span class="sc">$</span>code</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    , <span class="at">.envir =</span> options<span class="sc">$</span>data</span>
+<span id="cb2-13"><a href="#cb2-13"></a>  )</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  })</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tip-1a-use-lists-as-a-namespace" class="slide level2">
+<h2>Tip 1A use lists as a ‘namespace’</h2>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>whisker_data <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="at">species =</span> <span class="st">"virginica"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  , <span class="at">mean_length =</span>  iris <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"virginica"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="fu">pull</span>(Petal.Length) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="fu">mean</span>()</span>
+<span id="cb3-7"><a href="#cb3-7"></a>  , <span class="at">overall_mean =</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>  , <span class="at">field_name =</span> <span class="st">"petal length"</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  , <span class="at">other =</span> iris <span class="sc">%&gt;%</span>  </span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="fu">filter</span>(Species <span class="sc">!=</span> <span class="st">"virginica"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="fu">pull</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="fu">unique</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a href="#cb3-13"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">str_pad</span>(., <span class="at">width =</span> <span class="fu">nchar</span>(.) <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb3-14"><a href="#cb3-14"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a>whisker_data<span class="sc">$</span>greater_less <span class="ot">&lt;-</span> <span class="fu">with</span>(</span>
+<span id="cb3-17"><a href="#cb3-17"></a>  whisker_data</span>
+<span id="cb3-18"><a href="#cb3-18"></a>  , <span class="fu">ifelse</span>(mean_length <span class="sc">&gt;</span> overall_mean</span>
+<span id="cb3-19"><a href="#cb3-19"></a>           , <span class="st">"longer"</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>           , <span class="st">"shorter"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>PRE: Why do you want to do this? Because when you’re developing a report with lots of generated texts your environment will get very full of stuff. I have some reports that would have dozens of variables needed to generate text. This can put a lot of mental load on you as a developer. Plus naming things is hard…you might calculate ten different means, it’s hard to keep differentiating them.</p>
+</aside>
+</section>
+<section id="tip-1a-use-lists-as-a-namespace-1" class="slide level2">
+<h2>Tip 1A use lists as a ‘namespace’</h2>
+<div class="cell">
+<p>A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris species ({{other}}).</p>
+</div>
+<div class="fragment">
+<div class="cell" data="{&quot;species&quot;:&quot;virginica&quot;,&quot;mean_length&quot;:5.552,&quot;overall_mean&quot;:3.758,&quot;field_name&quot;:&quot;petal length&quot;,&quot;other&quot;:[&quot; setosa&quot;,&quot; versicolor&quot;],&quot;greater_less&quot;:&quot;longer&quot;}">
+<p>A typical virginica iris has longer petal length than other iris species ( setosa, versicolor).</p>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data="{&quot;species&quot;:&quot;virginica&quot;,&quot;mean_length&quot;:5.552,&quot;overall_mean&quot;:3.758,&quot;field_name&quot;:&quot;petal length&quot;,&quot;other&quot;:[&quot; setosa&quot;,&quot; versicolor&quot;],&quot;greater_less&quot;:&quot;longer&quot;}">
+<p>“A typical virginica iris has longer petal length than other iris species ( setosa, versicolor).”</p>
+</div>
+</div>
+<aside class="notes">
+<p>Mustache is intentionally very simple, but it does have a couple of other nice features. I use it to create conditional text that depends on some data element passing a threshold or being present in the data. This same pattern works with GLUE and glue.</p>
+</aside>
+</section></section>
+<section>
+<section id="tip-2-use-existing-design-resources" class="title-slide slide level1 center">
+<h1>Tip 2 : Use existing design resources</h1>
+<aside class="notes">
+<p>design reallly matters for documents with lots of words. style consistency and signposting are one of the big differences between a good document and an unreadable one. There’s a good chance that someone in your org has put a lot of thought into how to communicate.</p>
+</aside>
+</section>
+<section id="tip-2a-use-existing-document-templates-so-you-never-have-to-copypaste-again" class="slide level2">
+<h2>Tip 2A Use existing document templates so you never have to copy+paste again</h2>
+<p>it’s almost as easy as this:</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="at">      custom-reference-doc.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="at">  </span><span class="fu">docx</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="at">    </span><span class="fu">reference-doc</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">      cool-org-document.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<aside class="notes">
+<p>You can actually copy styles between documents! The pand doc starter template is a good place to start, but you can reference styles. The Quarto docs have a good example of how to futz with styles in word. For my org, I’ve actually wrapped a few of these design templates into packages! Never copy paste again! This same idea can work with existing css that your org uses. It may require a little more finagaling but style consistency can really elevate your documents.</p>
+</aside>
+</section>
+<section id="tip-2a-use-existing-document-templates" class="slide level2">
+<h2>Tip 2A Use existing document templates</h2>
+<p>Then use pandoc to reference your fancy custom styles like so:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a>:::{custom-style="pull-quote"}</span>
+<span id="cb6-2"><a href="#cb6-2"></a>Put your qutation here!</span>
+<span id="cb6-3"><a href="#cb6-3"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="img/pull-quote.png" class="r-stretch"></section>
+<section id="tip-2b-package-up-your-design-system" class="slide level2">
+<h2>Tip 2B Package up your design system</h2>
+<p>A minimal package that will save you tons of time:</p>
+<div>
+<ol type="1">
+<li class="fragment">put your organization colors in an easy to access list</li>
+<li class="fragment">a ggplot theme that gets you most of the way to publication ready</li>
+</ol>
+</div>
+<aside class="notes">
+<p>this is cheating, because it’s not strictly about using words, but it’s such a time saver that I can’t not include it.</p>
+</aside>
+</section>
+<section id="partner-with-a-writer" class="slide level2">
+<h2>Partner with a writer</h2>
+<p>They can help you with lots of stuff:</p>
+<div>
+<ul>
+<li class="fragment">grammar, the grammar for language</li>
+<li class="fragment">an outside opinion (does it make sense?)</li>
+<li class="fragment">thinking even more about what your audience cares about.</li>
+</ul>
+</div>
+<div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="presentation_files/libs/revealjs/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        setTimeout(function() {
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>
