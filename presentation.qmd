@@ -66,7 +66,7 @@ this stuff is all data science too. it's important! if you don't really understa
 ## 
 
 ::: {style="margin-top: 25px; font-size: 3em;"}
-Time to [Communicate]{style="color: #257675;"}
+Time to [communicate]{style="color: #257675;"}
 :::
 
 ::: {.notes}
@@ -76,7 +76,7 @@ At some point, or more likely at several points you will do some communication a
 ##  {background-color="black" background-image="https://www.matillion.com/wp-content/uploads/2015/01/bad-dashboard-examples-1.png" background-repeat="repeat" style="margin-top: 50px; font-size: 4em;"}
 
 ::: {.notes}
-No knock on dashboards! I've made more than a few. And no knock even on this particular dashboard, it's just what google gave me when I asked for "busy dashboards."  It might be a great dashboard for the someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal. 
+No knock on dashboards! I've made more than a few. And no knock even on this particular dashboard, it's just what google gave me when I asked for "busy dashboards."  It might be a great dashboard for someone. But sometimes, reflexively reaching for a dashboard or data visualization driven product can be less than optimal. 
 :::
 
 ## 
@@ -93,7 +93,7 @@ Bring people along on your [journey]{style="color: #257675;"}
 :::
 
 ::: {.notes}
-Remember all that context you built up? A good first communication question to ask is "how much of that context is shared by my audience". How much do you have to pack, to
+Remember all that context you built up? A good first question to ask yourself is  "how much of that context is shared by my audience". How much do you have to pack, to
 get your audience happily to their destination. 
 :::
 
@@ -168,7 +168,7 @@ describe the legal framework and rules that govern the collection
 ::: incremental
 ::: {style="font-size:1.75em;"}
 -   3 charts
--   6 KPIS
+-   6 KPIs
 -   less than a paragraph of text
 :::
 :::
@@ -248,7 +248,7 @@ ggplot(data = NULL)  %>%
 ::: {.column}
 
 ::: incremental
-- interactive tableau dahsboard
+- interactive Tableau dashboard
 - high chart density (dozens!)
 - field names correspond to internal system
 :::
@@ -259,10 +259,10 @@ ggplot(data = NULL)  %>%
 
 ::: notes
 PRE: I like this example because it's the same data but presented to two different audiences 
-POST: This is a pretty classic team KPIs kind of reporting dashboard. The original draft of the external version of this report repurposed a lot of this dashboard. 
+POST: This is a pretty classic team KPIs kind of reporting dashboard. When the team went to draft the external version of this report they repurposed a lot of this dashboard, because it's what they are used to.
 :::
 
-## Example : Moving to an External auidence of bank employees
+## Example : Moving to an External audience of bank employees
 
 :::: {.columns}
 
@@ -275,14 +275,15 @@ POST: This is a pretty classic team KPIs kind of reporting dashboard. The origin
 - 3 simple static charts
 - Some of the charts from the internal dashboard are now sentences!
 - Names are defined in an introduction
-- different explanatory paragraphs are included depending on data 
+- Different explanatory paragraphs are included depending on data 
 :::
 :::
 
 :::: 
 
 ::: notes
-
+It's actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point. 
+And we conditionally only the text that is relevant to save on time. 
 :::
 
 ## key factors
@@ -299,10 +300,13 @@ POST: This is a pretty classic team KPIs kind of reporting dashboard. The origin
 :::
 
 :::{.notes}
-external people don't share much context at all
-watch out for specialized charts--> don't just present a ROC curve
-for decision makers appropriate context builds trust  
-time crunched isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. You've got one shot!
+- external people don't share much context at all
+- external doesn't have just one meaning. there's external to your team, external to your office and external to your organization
+- watch out for specialized charts--> don't just present a ROC curve
+- for decision makers appropriate context builds trust  
+- time crunched isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. You've got one shot!
+
+that's chapter one, hopefully this is a helpful way to think about communicating and will help you identify when you might be in the universe of needing more words in your analysis. 
 :::
 
 # Chapter 2:
@@ -331,24 +335,55 @@ time crunched isn't super intuitive--but if someone is time-crunched they won't 
 [QUARTO]{style="color:blue;"}
 :::
 
+## Tips 
+
+:::{style='font-size:2.25em;'}
+
+
+[Use templates]{.fragment .highlight-current-blue}  
+
+[Use design resources]{.fragment .highlight-current-blue}  
+
+[Partner up]{.fragment .highlight-current-blue}  
+
+:::
 
 ## Tip 1 Use a template language or string interpolation
 
 ```{r }
-#| code-line-numbers: "|12|13|"
+#| code-line-numbers: "|11|12|"
 #| echo: fenced
 
 knitr::knit_engines$set(whisker = function(options ){
   
   if(purrr::is_empty(options$data)){
     options$data <- globalenv()
-    print(options$data)
   }
 
   whisker::whisker.render(
     template = options$code
     , data = options$data
     , partials = options$partials
+  )
+  })
+
+```
+
+## Tip 1 Use a template language or string interpolation
+
+```{r}
+#| code-line-numbers: "|11|12|"
+#| echo: fenced
+
+knitr::knit_engines$set(glue = function(options ){
+  
+  if(purrr::is_empty(options$data)){
+    options$data <- globalenv()
+  }
+  
+  glue::glue(
+    options$code
+    , .envir = options$data
   )
   })
 
@@ -402,6 +437,13 @@ A typical {{species}} iris has {{greater_less}} {{field_name}} than other iris s
 ```
 :::
 
+
+:::{.fragment}
+```{glue, data=whisker_data}
+"A typical {species} iris has {greater_less} {field_name} than other iris species ({glue_collapse(other, sep = ', ')})."
+```
+:::
+
 ::: {.notes}
 Mustache is intentionally very simple, but it does have a couple of other nice features. I use it to create conditional text that depends on some data element passing a threshold or being present in the data. This same pattern works with GLUE and glue. 
 :::
@@ -412,7 +454,7 @@ Mustache is intentionally very simple, but it does have a couple of other nice f
 design reallly matters for documents with lots of words. style consistency and signposting are one of the big differences between a good document and an unreadable one. There's a good chance that someone in your org has put a lot of thought into how to communicate.  
 :::
 
-## Tip 2A Use existing document templates so you never have to copy paste again
+## Tip 2A Use existing document templates so you never have to copy+paste again
 
 it's almost as easy as this: 
 
