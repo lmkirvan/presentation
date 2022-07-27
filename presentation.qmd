@@ -8,7 +8,7 @@ editor: visual
 # Sometimes you just need words
 
 :::{.notes}
-I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bureau. today I'm talking about how important words are for data analysts.
+I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bureau. Today I'm talking about how important words are for data analysts. 
 :::
 
 ## A story with two chapters: {auto-animate="true"}
@@ -21,7 +21,7 @@ I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bure
 :::
 
 :::{.notes}
-This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? 
+This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? But, seriously, I work in a reasonably data driven organization. Still I'd wager that basically none of the decision makers in my organization have run a regression (at least since college). Effective communication through 
 
 The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate text based on your data. 
 :::
