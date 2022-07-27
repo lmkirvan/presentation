@@ -21,9 +21,9 @@ I'm Lewis Kirvan, I'm a research manager at the Consumer Finance Protection Bure
 :::
 
 :::{.notes}
-This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? But, seriously, I work in a reasonably data driven organization. Still I'd wager that basically none of the decision makers in my organization have run a regression (at least since college). Effective communication through 
+This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? But, seriously, I work in a reasonably data driven organization. Still I'd wager that basically none of the decision-makers in my organization have run a regression recently. Effective communication runs through the the words that accompany your analysis. And effective communication is a big way to stand out as a data person. That's my pitch at least. 
 
-The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate text based on your data. 
+The second part of this talk presents a few tips for making it easy to work with words. Especially when you want to generate text based on your data. 
 :::
 
 # Chapter 1: {auto-animate="true"}
@@ -136,10 +136,12 @@ I'm going to talk about a couple of quick examples that demonstrate the range of
 ::::
 
 ::: notes
-congress needs a lot of stuff
-explaining and defining key terms
-describing the data collection in detail
-describe the legal framework and rules that govern the collection
+*POST*
+
+- congress needs a lot of stuff
+- explaining and defining key terms
+- describing the data collection in detail
+- describe the legal framework and rules that govern the collection
 :::
 
 ## Two limit cases: Congress | your immediate team {auto-animate="true"}
@@ -282,8 +284,13 @@ POST: This is a pretty classic team KPIs kind of reporting dashboard. When the t
 :::: 
 
 ::: notes
-It's actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point. 
-And we conditionally only the text that is relevant to save on time. 
+*PRE*
+this is when I entered the project. And I knew that we wanted this document to travel. We wanted people at the bank to be able to share it. So it's context had to travel with the document.
+
+*post*
+- It's actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point. 
+
+- And we conditionally only the text that is relevant to save on time. 
 :::
 
 ## key factors
@@ -300,11 +307,11 @@ And we conditionally only the text that is relevant to save on time.
 :::
 
 :::{.notes}
-- external people don't share much context at all
-- external doesn't have just one meaning. there's external to your team, external to your office and external to your organization
-- watch out for specialized charts--> don't just present a ROC curve
-- for decision makers appropriate context builds trust  
-- time crunched isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. You've got one shot!
+- *external* people don't share much context at all
+- *external* doesn't have just one meaning. there's external to your team, external to your office and external to your organization
+- *technical* watch out for specialized charts--> don't just present a ROC curve
+- *decision makers* need appropriate context to trust your analysis. If they don't get they can't make a decision. This is something I've seen alot and something that's happened to me when presenting to senior people.   
+- *time crunched* isn't super intuitive--but if someone is time-crunched they won't look up the context themselves. So you've got one shot!
 
 that's chapter one, hopefully this is a helpful way to think about communicating and will help you identify when you might be in the universe of needing more words in your analysis. 
 :::
@@ -351,7 +358,7 @@ that's chapter one, hopefully this is a helpful way to think about communicating
 ## Tip 1 Use a template language or string interpolation
 
 ```{r }
-#| code-line-numbers: "|11|12|"
+#| code-line-numbers: "|4|11|12|"
 #| echo: fenced
 
 knitr::knit_engines$set(whisker = function(options ){
@@ -369,11 +376,22 @@ knitr::knit_engines$set(whisker = function(options ){
 
 ```
 
+:::notes
+*PRE*
+The context here is building up generated text. 
+When you're building text your environment will get cluttered. 
+Your markdown file, littered with calculations will be hard to read.
+
+This idea is a partial solution. Generating text is hard and tedious Take all the help you can get. 
+
+This function registers a language engine for mustache templates. It takes a template (basically markdown with variables) and some data and marries them together. 
+:::
+
 ## Tip 1 Use a template language or string interpolation
 
 ```{r}
-#| code-line-numbers: "|11|12|"
 #| echo: fenced
+#| code-line-numbers: "|11|12|"
 
 knitr::knit_engines$set(glue = function(options ){
   
@@ -418,7 +436,8 @@ whisker_data$greater_less <- with(
 ```
 
 ::: notes
-PRE: Why do you want to do this? Because when you're developing a report with lots of generated texts your environment will get very full of stuff. I have some reports that would have dozens of variables needed to generate text. This can put a lot of mental load on you as a developer. Plus naming things is hard...you might calculate ten different means, it's hard to keep differentiating them.  
+PRE: 
+And here's where we make the data. this is nice! It's a little namespace for the variables you need to fill your template. It reduces the amount of clutter in your environment and for me at least reduces some of the mental load on you as a developer. Plus naming things is hard...you might calculate ten different means, it's hard to keep differentiating them. Stick them in lists for the sections of your report instead.    
 :::
 
 ## Tip 1A use lists as a 'namespace'
@@ -484,7 +503,9 @@ format:
 ::::
 
 :::notes
-You can actually copy styles between documents! The pand doc starter template is a good place to start, but you can reference styles. The Quarto docs have a good example of how to futz with styles in word. For my org, I've actually wrapped a few of these design templates into packages! Never copy paste again! This same idea can work with existing css that your org uses. It may require a little more finagaling but style consistency can really elevate your documents. 
+So, I'm a pretty data analysts in that I have degrees in African History and a JD. I spent the first 30-ish years of my life trying to make effective documents. Let's look at an example. John Hopkins published the covid dashboard throughout the pandemic. Millions of people visited the dashboard -- it was interesting; it allowed people to dig into their local area. But what were people talking about? They were talking about a few stats and stories of hospitals and people who were sick. Dashboards are great for exploring. Words and narrative are great for communicating.
+
+So what makes a good document; consistency and signposting. If you are in a big organization it's likely that someone has probably thought about how to make consistent documents and documents that are well signposted. Use them here! You can just stick the file in to your yaml and make sure it works. OR go the extra mile and make it into a simple package. I've done this with some of the document templates at my work and it's awesome. Plus you never have to copy and paste into word or PowerPoint again. 
 :::
 
 ## Tip 2A Use existing document templates 
@@ -498,19 +519,21 @@ Put your qutation here!
 ```
 
 ![](img/pull-quote.png)
-
+::: Notes
+look at this output actually looks good. I don't have a clue how to do this in word and I don't want to know, but I can take advantage of it easily with markdown. There is actually pretty good documentation on working with styles in the Quarto docs. 
+:::
 
 ## Tip 2B Package up your design system
 
 A minimal package that will save you tons of time:
 
 :::incremental
-1. put your organization colors in an easy to access list
+1. put your organization color system in an easy to access list
 2. a ggplot theme that gets you most of the way to publication ready
 :::
 
 :::notes 
-this is cheating, because it's not strictly about using words, but it's such a time saver that I can't not include it.
+this is cheating, because it's not strictly about using words, but it's such a great time saver in producing reports and documents that I can't not include it. Someone at my org did this and I love them for it. basically everyday. 
 :::
 
 ## Partner with a writer
@@ -519,8 +542,10 @@ They can help you with lots of stuff:
 
 :::incremental
 - grammar, the grammar for language
-- an outside opinion (does it make sense?)
+- an outside opinion (does this make sense?)
 - thinking even more about what your audience cares about. 
 :::
 
-
+:::notes 
+Writing is hard! And it's sometimes especially hard for smart analytical people. You expect to much of your audience to be honest. 
+:::

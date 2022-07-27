@@ -408,8 +408,8 @@
 </ol>
 </div>
 <aside class="notes">
-<p>This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? But, seriously, I work in a reasonably data driven organization. Still I’d wager that basically none of the decision makers in my organization have run a regression (at least since college). Effective communication through</p>
-<p>The second part of this talk presents a few tactics for making it easy to work with words. Especially when you want to generate text based on your data.</p>
+<p>This talk is pretty simple. The first part is about recognizing how important words are for communicating about data. Sure data visualizations are cool, but have you heard of paragraphs? But, seriously, I work in a reasonably data driven organization. Still I’d wager that basically none of the decision-makers in my organization have run a regression recently. Effective communication runs through the the words that accompany your analysis. And effective communication is a big way to stand out as a data person. That’s my pitch at least.</p>
+<p>The second part of this talk presents a few tips for making it easy to work with words. Especially when you want to generate text based on your data.</p>
 </aside>
 </section></section>
 <section>
@@ -515,7 +515,13 @@
 </div>
 </div>
 <aside class="notes">
-<p>congress needs a lot of stuff explaining and defining key terms describing the data collection in detail describe the legal framework and rules that govern the collection</p>
+<p><em>POST</em></p>
+<ul>
+<li>congress needs a lot of stuff</li>
+<li>explaining and defining key terms</li>
+<li>describing the data collection in detail</li>
+<li>describe the legal framework and rules that govern the collection</li>
+</ul>
 </aside>
 </section>
 <section id="two-limit-cases-congress-your-immediate-team-1" class="slide level2" data-auto-animate="true">
@@ -599,7 +605,11 @@
 </div>
 </div>
 <aside class="notes">
-<p>It’s actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point. And we conditionally only the text that is relevant to save on time.</p>
+<p><em>PRE</em> this is when I entered the project. And I knew that we wanted this document to travel. We wanted people at the bank to be able to share it. So it’s context had to travel with the document.</p>
+<p><em>post</em> - It’s actually easier and denser to tell people what the chart means directly in words instead of putting the chart in there, and describing it and hoping someone gets the point.</p>
+<ul>
+<li>And we conditionally only the text that is relevant to save on time.</li>
+</ul>
 </aside>
 </section>
 <section id="key-factors" class="slide level2">
@@ -612,12 +622,12 @@
 </div>
 <aside class="notes">
 <ul>
-<li>external people don’t share much context at all</li>
-<li>external doesn’t have just one meaning. there’s external to your team, external to your office and external to your organization</li>
-<li>watch out for specialized charts–&gt; don’t just present a ROC curve</li>
-<li>for decision makers appropriate context builds trust<br>
+<li><em>external</em> people don’t share much context at all</li>
+<li><em>external</em> doesn’t have just one meaning. there’s external to your team, external to your office and external to your organization</li>
+<li><em>technical</em> watch out for specialized charts–&gt; don’t just present a ROC curve</li>
+<li><em>decision makers</em> need appropriate context to trust your analysis. If they don’t get they can’t make a decision. This is something I’ve seen alot and something that’s happened to me when presenting to senior people.<br>
 </li>
-<li>time crunched isn’t super intuitive–but if someone is time-crunched they won’t look up the context themselves. You’ve got one shot!</li>
+<li><em>time crunched</em> isn’t super intuitive–but if someone is time-crunched they won’t look up the context themselves. So you’ve got one shot!</li>
 </ul>
 <p>that’s chapter one, hopefully this is a helpful way to think about communicating and will help you identify when you might be in the universe of needing more words in your analysis.</p>
 </aside>
@@ -650,8 +660,8 @@
 <section id="tip-1-use-a-template-language-or-string-interpolation" class="slide level2">
 <h2>Tip 1 Use a template language or string interpolation</h2>
 <div class="cell">
-<div class="sourceCode" id="cb1" data-code-line-numbers="|11|12|"><pre class="sourceCode numberSource markdown cell-code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#| code-line-numbers: "|11|12|"</span></span>
+<div class="sourceCode" id="cb1" data-code-line-numbers="|4|11|12|"><pre class="sourceCode numberSource markdown cell-code number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#| code-line-numbers: "|4|11|12|"</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>knitr<span class="sc">::</span>knit_engines<span class="sc">$</span><span class="fu">set</span>(<span class="at">whisker =</span> <span class="cf">function</span>(options ){</span>
 <span id="cb1-5"><a href="#cb1-5"></a>  </span>
@@ -667,6 +677,11 @@
 <span id="cb1-15"><a href="#cb1-15"></a>  })</span>
 <span id="cb1-16"><a href="#cb1-16"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<aside class="notes">
+<p><em>PRE</em> The context here is building up generated text. When you’re building text your environment will get cluttered. Your markdown file, littered with calculations will be hard to read.</p>
+<p>This idea is a partial solution. Generating text is hard and tedious Take all the help you can get.</p>
+<p>This function registers a language engine for mustache templates. It takes a template (basically markdown with variables) and some data and marries them together.</p>
+</aside>
 </section>
 <section id="tip-1-use-a-template-language-or-string-interpolation-1" class="slide level2">
 <h2>Tip 1 Use a template language or string interpolation</h2>
@@ -714,7 +729,7 @@
 <span id="cb3-21"><a href="#cb3-21"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
-<p>PRE: Why do you want to do this? Because when you’re developing a report with lots of generated texts your environment will get very full of stuff. I have some reports that would have dozens of variables needed to generate text. This can put a lot of mental load on you as a developer. Plus naming things is hard…you might calculate ten different means, it’s hard to keep differentiating them.</p>
+<p>PRE: And here’s where we make the data. this is nice! It’s a little namespace for the variables you need to fill your template. It reduces the amount of clutter in your environment and for me at least reduces some of the mental load on you as a developer. Plus naming things is hard…you might calculate ten different means, it’s hard to keep differentiating them. Stick them in lists for the sections of your report instead.</p>
 </aside>
 </section>
 <section id="tip-1a-use-lists-as-a-namespace-1" class="slide level2">
@@ -762,7 +777,8 @@
 </div>
 </div>
 <aside class="notes">
-<p>You can actually copy styles between documents! The pand doc starter template is a good place to start, but you can reference styles. The Quarto docs have a good example of how to futz with styles in word. For my org, I’ve actually wrapped a few of these design templates into packages! Never copy paste again! This same idea can work with existing css that your org uses. It may require a little more finagaling but style consistency can really elevate your documents.</p>
+<p>So, I’m a pretty data analysts in that I have degrees in African History and a JD. I spent the first 30-ish years of my life trying to make effective documents. Let’s look at an example. John Hopkins published the covid dashboard throughout the pandemic. Millions of people visited the dashboard – it was interesting; it allowed people to dig into their local area. But what were people talking about? They were talking about a few stats and stories of hospitals and people who were sick. Dashboards are great for exploring. Words and narrative are great for communicating.</p>
+<p>So what makes a good document; consistency and signposting. If you are in a big organization it’s likely that someone has probably thought about how to make consistent documents and documents that are well signposted. Use them here! You can just stick the file in to your yaml and make sure it works. OR go the extra mile and make it into a simple package. I’ve done this with some of the document templates at my work and it’s awesome. Plus you never have to copy and paste into word or PowerPoint again.</p>
 </aside>
 </section>
 <section id="tip-2a-use-existing-document-templates" class="slide level2">
@@ -771,19 +787,19 @@
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a>:::{custom-style="pull-quote"}</span>
 <span id="cb6-2"><a href="#cb6-2"></a>Put your qutation here!</span>
 <span id="cb6-3"><a href="#cb6-3"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<img data-src="img/pull-quote.png" class="r-stretch"></section>
+<p><img data-src="img/pull-quote.png"> ::: Notes look at this output actually looks good. I don’t have a clue how to do this in word and I don’t want to know, but I can take advantage of it easily with markdown. There is actually pretty good documentation on working with styles in the Quarto docs. :::</p>
+</section>
 <section id="tip-2b-package-up-your-design-system" class="slide level2">
 <h2>Tip 2B Package up your design system</h2>
 <p>A minimal package that will save you tons of time:</p>
 <div>
 <ol type="1">
-<li class="fragment">put your organization colors in an easy to access list</li>
+<li class="fragment">put your organization color system in an easy to access list</li>
 <li class="fragment">a ggplot theme that gets you most of the way to publication ready</li>
 </ol>
 </div>
 <aside class="notes">
-<p>this is cheating, because it’s not strictly about using words, but it’s such a time saver that I can’t not include it.</p>
+<p>this is cheating, because it’s not strictly about using words, but it’s such a great time saver in producing reports and documents that I can’t not include it. Someone at my org did this and I love them for it. basically everyday.</p>
 </aside>
 </section>
 <section id="partner-with-a-writer" class="slide level2">
@@ -792,10 +808,13 @@
 <div>
 <ul>
 <li class="fragment">grammar, the grammar for language</li>
-<li class="fragment">an outside opinion (does it make sense?)</li>
+<li class="fragment">an outside opinion (does this make sense?)</li>
 <li class="fragment">thinking even more about what your audience cares about.</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Writing is hard! And it’s sometimes especially hard for smart analytical people. You expect to much of your audience to be honest.</p>
+</aside>
 <div class="footer footer-default">
 
 </div>
